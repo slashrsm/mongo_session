@@ -1,0 +1,24 @@
+small.attribution {
+  font-size: .4em;
+  position: absolute;
+  bottom: -1em;
+  right: -5em;
+}
+
+.reveal pre.doc-example {
+  font-size: .5em;
+}
+
+.reveal pre {
+  font-size: 1em;
+}
+
+.reveal table {
+  margin: 0px auto;
+}
+
+.reveal table td, .reveal table th {
+  padding: .2em;
+  text-align: center;
+  border: 1px solid white;
+}
