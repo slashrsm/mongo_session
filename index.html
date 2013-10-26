@@ -93,7 +93,14 @@ local	0.078125GB
 > show collections;
 system.indexes
 awesomestuff
+> show dbs;
+bla 0.203125GB
+local 0.078125GB
             </code></pre>
+            <aside class="notes">
+              - dbs and collections created in a implicit way<br />
+              - we simply insert, no need to define schema
+            </aside>
           </section>
 
           <section>
@@ -107,23 +114,29 @@ awesomestuff
   }
 );
             </code></pre>
+            <aside class="notes">
+              - arrays, arrays of arrays<br />
+              - documents /w documents as their values<br />
+              - other funky stuff
+            </aside>
           </section>
 
           <section>
             <h2>What else?</h2>
             <ul>
               <li>no joins</li>
-              <li>no transactions</li>
+              <li>no transactions (there are atomic update operations)</li>
               <li>allows you to index on anything</li>
               <li>seamless replication and scaling (sharding)</li>
               <li>capped collections</li>
               <li>geospatial indexes</li>
-              <li>aggregation framework</li>
+              <li>aggregation and MapReduce frameworks</li>
             </ul>
 
             <aside class="notes">
               - transacitions: can use $isolated for multi-updates to be atomic (no rollback)<br />
               - index limitation: only one array in index<br />
+              - MapReduce - Hadoop can use it as source/destination<br />
             </aside>
           </section>
 
@@ -197,6 +210,12 @@ awesomestuff
             <p>stores entites /w fields as Mongo docs, still needs base entity table, lazy destruction of stale data, new fields added very easily</p>
 
             <small class="attribution">Photo by Aleksej Leonov - <a href="http://www.flickr.com/photos/31849470@N02/7652495954">http://www.flickr.com/photos/31849470@N02/7652495954</a></small>
+            <aside class="notes">
+              - not so easy to swap than others<br />
+              - best if you start with it from the beginning<br />
+              - there is mongodb_migrate module that migrates SQL fields to Mongo<br />
+              - hopefully much better in D8 (Migrate in core, storage controllers, ...)
+            </aside>
           </section>
 
           <section>
@@ -243,15 +262,18 @@ awesomestuff
               <li>sessions storage</li>
               <li>Entity (field) query</li>
             </ul>
+            <aside class="notes">
+              - EFQ is easy swappable<br />
+            </aside>
           </section>
 
           <section>
             <h2>Conclusion</h2>
             <ul>
-              <li>you <strong>cannot</strong> run away from MySQL (Yet! - Drupal 8!!)</li>
+              <li>you <strong>cannot</strong> completely run away from MySQL (Yet! - Drupal 8!!)</li>
               <li>you <strong>can</strong> use mongo to achieve performance improvements</li>
               <li>Views can be used with EFQ query plugin</li>
-              <li>you need to know why you're going to use MongoDB</li>
+              <li>you need to know <strong>why</strong> you're going to use MongoDB</li>
             </ul>
           </section>
 
@@ -311,7 +333,9 @@ awesomestuff
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'socket.io/socket.io.js', async: true },
+          { src: 'plugin/notes-server/client.js', async: true }
 				]
 			});
 
