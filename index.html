@@ -94,7 +94,7 @@ local	0.078125GB
 system.indexes
 awesomestuff
 > show dbs;
-bla 0.203125GB
+drupal 0.203125GB
 local 0.078125GB
             </code></pre>
             <aside class="notes">
@@ -105,11 +105,15 @@ local 0.078125GB
 
           <section>
             <pre class="stretch"><code data-trim>
-> db.awesomestuff.insert({"a": [1, 2, 3], "b":"some string"});
-> db.awesomestuff.insert({"a": [[1,2,4], [4,5,6], [7,8,9]]});
+> db.awesomestuff.insert({
+  "a": [1, 2, 3], "b":"some string"
+});
+> db.awesomestuff.insert({
+  "a": [[1,2,4], [4,5,6], [7,8,9]]
+});
 > db.awesomestuff.insert({
   "a": {
-    "name" : "foo",
+    "name" : "Dries",
     "interests" : ["Drupal", "MongoDB"]
   }
 );
